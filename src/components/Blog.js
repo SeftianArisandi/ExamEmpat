@@ -2,9 +2,6 @@ import React, { useEffect, useState, useCallback } from 'react';
 
 import axios from 'axios';
 
-const BASE_URL = 'https://dummyapi.io/data/api/post?limit=10';
-const APP_ID = '601f5789b684d61c880d799c';
-
 const Blog = () => {
     const [data, setData] = useState("");
 
