@@ -6,33 +6,19 @@ const BASE_URL = 'https://dummyapi.io/data/api/post?limit=10';
 const APP_ID = '601f5789b684d61c880d799c';
 
 const Blog = () => {
-
-    // const [loading, setLoading] = useState(false);
-    // const [data, setData] = useState(null);
-
-    // useEffect(() => {
-    //     setLoading(true);
-    //     axios.get(`${BASE_URL}/user`, { headers: { 'app-id': APP_ID } })
-    //         .then(({ data }) => setData(data.data))
-    //         .catch(console.error)
-    //         .finally(() => setLoading(false));
-    // }, []);
-
-    // console.log(data);
-
-    const [blogs, setBlogs] = useState("");
+    const [data, setData] = useState("");
 
     const fetchData = useCallback(() => {
         axios({
           method: "GET",
           url:
-            "https://dummyapi.io/data/api/user/0F8JIqi4zwvb77FGz6Wt/post?limit=5",
+            "https://dummyapi.io/data/api/post?limit=10",
           headers: {
-            "app-id": "601cbc4bba8d73216f9cf02c",
+            "app-id": "601f5789b684d61c880d799c",
           },
         })
           .then((response) => {
-            setBlogs(response.data);
+            setData(response.data);
           })
           .catch((error) => {
             console.log(error);
@@ -42,6 +28,8 @@ const Blog = () => {
     useEffect(()=>{
         fetchData();
     }, [fetchData]);
+
+    console.log(data);
 
     return (
         <div className="section-vcardbody section-page" id="page-blog">
@@ -54,7 +42,7 @@ const Blog = () => {
                 {/* BLOG POSTS */}
                 <div className="blog-posts">
 
-                    {blogs && blogs.data.map((value, index)=>{
+                    {data && data.data.map((value, index)=>{
                         return (
                             <div className="blog-item" key={index}>
                                 <div className="blog-item-wrapper">
