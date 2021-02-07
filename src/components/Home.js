@@ -93,7 +93,7 @@ const Home = () => {
                 <Portfolio />
     
                 {/* SECTION: BLOG*/}
-                <Blog />
+                {/* <Blog /> */}
     
                 {/* SECTION: BLOG SINGLE*/}
                 <BlogSingle />
